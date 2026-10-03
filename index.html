@@ -388,6 +388,8 @@ p{margin:0}
 }
 .card:hover{transform:translateY(-6px)}
 .card.is-hidden{display:none}
+.card__link{position:absolute;inset:0;z-index:5;border-radius:inherit}
+.card__link:focus-visible{outline:3px solid var(--white);outline-offset:4px}
 /* bentuk blob organik, warnanya mengikuti tiap produk (--blob) */
 .card__media{
   background:none;
@@ -422,7 +424,7 @@ p{margin:0}
   transition-delay:var(--d);
   filter:drop-shadow(0 4px 6px rgba(26,12,12,.22));
 }
-.card:hover .crumbs i,.card:focus-within .crumbs i{
+.card:hover .crumbs i,.card:focus-within .crumbs i,.card.is-pop .crumbs i{
   opacity:1;transform:translate(0,0) scale(1) rotate(var(--r));
   animation:bob 2.6s ease-in-out infinite alternate;
   animation-delay:calc(var(--d) + .55s);
@@ -489,8 +491,7 @@ p{margin:0}
 .card[data-tone="cripzy-extra"] .crumbs i:nth-child(7){background-image:var(--e7)}
 .card[data-tone="cripzy-extra"] .crumbs i:nth-child(8){background-image:var(--e8)}
 .card[data-tone^="cripzy"] .crumbs i{width:calc(var(--s) * 1.25);height:calc(var(--s) * 1.25)}
-@media(hover:none){.crumbs{display:none}}
-@media(prefers-reduced-motion:reduce){.card:hover .crumbs i,.card:focus-within .crumbs i{animation:none}}
+@media(prefers-reduced-motion:reduce){.card:hover .crumbs i,.card:focus-within .crumbs i,.card.is-pop .crumbs i{animation:none}}
 .badge{
   position:absolute;top:4px;left:0;z-index:4;
   background:var(--ink);color:var(--white);font-size:.62rem;font-weight:700;
@@ -901,6 +902,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Pilus kencur gurih dengan aroma cikur yang khas. Rasa asli yang bertahan sejak 1978.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Sari Rasa Original lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="1" data-tone="pedas" style="--blob:#A8563A" data-cat="sari-rasa">
         <div class="card__media"><span class="badge">Best seller</span>
@@ -913,6 +915,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Bumbu pedas manis yang nempel di tiap butir. Manisnya dulu, pedasnya nyusul.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Sari Rasa Pedas Manis lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="1" data-tone="wijen" style="--blob:#B08A5E" data-cat="kacang">
         <div class="card__media">
@@ -925,6 +928,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Pilus berlapis wijen dan jinten. Gurihnya berlapis, renyahnya panjang.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Fujiyama lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="1" style="--blob:#9AB471" data-cat="kacang">
         <div class="card__media">
@@ -937,6 +941,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Kacang kedelai berbalut tepung tipis. Ringan, renyah, susah berhenti.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Tjang-Ro lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="1" style="--blob:#B8842A" data-cat="kacang">
         <div class="card__media">
@@ -949,6 +954,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Teman ngobrol, nonton, dan perjalanan. Kacang kedelai buat setiap hari.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Hari Hari lewat Shopee"></a>
       </article>
       <article class="card rv" style="--blob:#B4452E;--mpad:34px 54px" data-cat="cripzy" data-tone="cripzy-pedas" data-front="1">
         <div class="card__media"><span class="badge">Baru</span>
@@ -961,6 +967,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Keripik rasa ikan dengan bumbu pedas, kemasan sachet siap jinjing.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Cripzy Rasa Ikan Pedas lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" data-tone="cripzy" style="--blob:#8FB2A8" data-cat="cripzy">
         <div class="card__media">
@@ -973,6 +980,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Keripik rasa ikan gurih dalam kemasan besar. Cocok buat stok toko.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Cripzy Original lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" data-tone="cripzy-pedas" style="--blob:#B06334" data-cat="cripzy">
         <div class="card__media">
@@ -985,6 +993,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Rasa ikan dengan bumbu pedas merata. Kemasan besar, isi banyak.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Cripzy Pedas lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" data-tone="cripzy-extra" style="--blob:#96392C" data-cat="cripzy">
         <div class="card__media"><span class="badge">Extra pedas</span>
@@ -997,6 +1006,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Level pedas paling atas. Buat yang standarnya sudah kelewat tinggi.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Cripzy Extra Pedas lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" style="--blob:#7FA6C4" data-cat="kiloan">
         <div class="card__media"><span class="badge badge--ink">Grosir</span>
@@ -1009,6 +1019,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Kemasan kiloan untuk warung, toko oleh-oleh, dan reseller.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Sari Rasa Original 1 kg lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" data-tone="pedas" style="--blob:#A8563A" data-cat="kiloan">
         <div class="card__media"><span class="badge badge--ink">Grosir</span>
@@ -1021,6 +1032,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Varian pedas manis dalam kemasan 1 kg. Siap dikemas ulang.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Sari Rasa Pedas Manis 1 kg lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" data-tone="jeruk" style="--blob:#C77A22" data-cat="kiloan">
         <div class="card__media"><span class="badge badge--ink">Grosir</span>
@@ -1033,6 +1045,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Pedas daun jeruk, ukuran kiloan untuk stok jangka panjang.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Sari Rasa Geprek Daun Jeruk 1 kg lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" style="--blob:#9AB471" data-cat="kiloan">
         <div class="card__media"><span class="badge badge--ink">Grosir</span>
@@ -1045,6 +1058,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Kacang kedelai renyah dalam kemasan kiloan.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Tjang-Ro 1 kg lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" data-tone="wijen" style="--blob:#AD8757" data-cat="kiloan">
         <div class="card__media"><span class="badge badge--ink">Grosir</span>
@@ -1057,6 +1071,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Pilus wijen jinten, ukuran kiloan untuk pengecer.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Fujiyama 1 kg lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" style="--blob:#B8842A" data-cat="kiloan">
         <div class="card__media"><span class="badge badge--ink">Grosir</span>
@@ -1069,6 +1084,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Kacang kedelai Hari Hari dalam kemasan 1 kg.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Hari Hari 1 kg lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" style="--blob:#7FA6C4" data-cat="renceng">
         <div class="card__media"><span class="badge badge--ink">Legendaris</span>
@@ -1081,6 +1097,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Kemasan renceng 12 g. Ukuran favorit warung dan kantin sekolah.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Sari Rasa Original — Cetak Biru lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" style="--blob:#B57C93" data-cat="renceng">
         <div class="card__media"><span class="badge badge--ink">Legendaris</span>
@@ -1093,6 +1110,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Versi cetak merah dari renceng original. Sekali hap, langsung habis.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Sari Rasa Original — Cetak Merah lewat Shopee"></a>
       </article>
       <article class="card rv" data-front="0" data-tone="pedas" style="--blob:#B06334" data-cat="renceng">
         <div class="card__media"><span class="badge badge--ink">Legendaris</span>
@@ -1105,6 +1123,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
           <p class="card__desc">Pedas manis dalam kemasan renceng 12 g.</p>
           <a class="card__cta" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Pesan lewat Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="card__link" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener" aria-label="Pesan Sari Rasa Pedas Manis Renceng lewat Shopee"></a>
       </article>
     <p class="empty" id="empty" hidden>Belum ada produk di kategori ini.</p>
   </div>
@@ -1227,6 +1246,7 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
       <ul>
         <li><a href="https://wa.me/6281221322842?text=Halo%20KLC%20Food%20Co.%2C%20saya%20mau%20tanya%20produk%20dan%20harga.%20Terima%20kasih%21" target="_blank" rel="noopener">WhatsApp 0812-2132-2842</a></li>
         <li><a href="https://instagram.com/klcfood.co" target="_blank" rel="noopener">Instagram @klcfood.co</a></li>
+        <li><a href="https://www.tiktok.com/@klcfood.official" target="_blank" rel="noopener">TikTok @klcfood.official</a></li>
         <li><a href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Shopee klcfood.co</a></li>
         <li>CV KLC, Garut 44182<br>Jawa Barat, Indonesia</li>
       </ul>
@@ -1273,6 +1293,24 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
       empty.hidden=n>0;
     });
   });
+  // layar sentuh: butiran muncul saat kartu disentuh dan saat kartu masuk layar
+  if(window.matchMedia('(hover: none)').matches){
+    cards.forEach(function(card){
+      card.addEventListener('touchstart',function(){
+        card.classList.add('is-pop');
+      },{passive:true});
+    });
+    if('IntersectionObserver' in window){
+      var pop=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting)e.target.classList.add('is-pop');
+          else e.target.classList.remove('is-pop');
+        });
+      },{threshold:.55});
+      cards.forEach(function(card){pop.observe(card)});
+    }
+  }
+
   document.querySelectorAll('[data-jump]').forEach(function(el){
     el.addEventListener('click',function(){
       var t=el.dataset.jump;
