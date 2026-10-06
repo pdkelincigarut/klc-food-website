@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KLC Food Co. — Pelopor Pilus Cikur sejak 1978, Garut</title>
 <meta name="description" content="CV KLC, Garut. Pilus cikur Sari Rasa, kacang kedelai Tjang-Ro & Hari Hari, Fujiyama, Poter, dan Cripzy. Camilan renyah asli Garut sejak 1978. Halal.">
-<meta name="theme-color" content="#be0000">
+<meta name="theme-color" content="#edc72e">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#edc72e">
+<link rel="preload" as="image" href="img/hero-photo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400..800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero-photo.webp">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="%23be0000"/><text x="16" y="22" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="%23fff" text-anchor="middle">K</text></svg>'>
 <style>
 /* ============================================================
@@ -378,6 +379,10 @@ p{margin:0}
 }
 .chip:hover{border-color:var(--red);color:var(--red)}
 .chip[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:var(--white)}
+.chip--shop{display:inline-flex;align-items:center;gap:7px;color:var(--red);border-color:var(--red)}
+.chip--shop svg{width:14px;height:14px;transition:transform .2s}
+.chip--shop:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+.chip--shop:hover svg{transform:translateX(3px)}
 .grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px) clamp(16px,2vw,26px);
   max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);
@@ -631,12 +636,12 @@ p{margin:0}
   from{transform:translateY(0) rotate(var(--r))}
   to{transform:translateY(-16px) rotate(calc(var(--r) + 10deg))}
 }
-.flies i:nth-child(1){--x:3%;--y:15%;--s:clamp(22px,2.6vw,46px);--r:-14deg;--d:0s}
-.flies i:nth-child(2){--x:9%;--y:71%;--s:clamp(18px,2.1vw,38px);--r:18deg;--d:.6s}
-.flies i:nth-child(3){--x:89%;--y:11%;--s:clamp(20px,2.3vw,42px);--r:-8deg;--d:1.2s}
-.flies i:nth-child(4){--x:85%;--y:67%;--s:clamp(20px,2.4vw,44px);--r:22deg;--d:.3s}
-.flies i:nth-child(5){--x:16%;--y:41%;--s:clamp(15px,1.8vw,32px);--r:-20deg;--d:1.6s}
-.flies i:nth-child(6){--x:93%;--y:41%;--s:clamp(15px,1.8vw,32px);--r:10deg;--d:.9s}
+.flies i:nth-child(1){--x:.6%;--y:12%;--s:clamp(22px,2.6vw,46px);--r:-14deg;--d:0s}
+.flies i:nth-child(2){--x:.4%;--y:46%;--s:clamp(18px,2.1vw,38px);--r:18deg;--d:.6s}
+.flies i:nth-child(3){left:auto;right:.6%;--y:8%;--s:clamp(20px,2.3vw,42px);--r:-8deg;--d:1.2s}
+.flies i:nth-child(4){left:auto;right:.4%;--y:62%;--s:clamp(20px,2.4vw,44px);--r:22deg;--d:.3s}
+.flies i:nth-child(5){--x:.6%;--y:80%;--s:clamp(15px,1.8vw,32px);--r:-20deg;--d:1.6s}
+.flies i:nth-child(6){left:auto;right:.6%;--y:34%;--s:clamp(15px,1.8vw,32px);--r:10deg;--d:.9s}
 /* potongan basreng/cripzy untuk latar kuning, butiran sukro untuk latar merah */
 .flies--dark i:nth-child(1){background-image:var(--d1)}
 .flies--dark i:nth-child(2){background-image:var(--d3)}
@@ -667,6 +672,9 @@ p{margin:0}
 @media(max-width:860px){
   .deco--pack2{display:none}
   .flies i:nth-child(3),.flies i:nth-child(6){display:none}
+  /* HP: teks selebar layar, butiran dimundurkan lebih jauh ke luar tepi */
+  .flies i:nth-child(n){--x:-.8%;--s:clamp(17px,4.6vw,26px)}
+  .flies i:nth-child(3),.flies i:nth-child(4),.flies i:nth-child(6){right:-.8%}
 }
 #produk .flies i:nth-child(2),#produk .flies i:nth-child(5),#produk .flies i:nth-child(6){display:none}
 @media(prefers-reduced-motion:reduce){.flies i{animation:none}}
@@ -881,15 +889,15 @@ body{background:var(--sun) var(--i-paper) center/cover fixed no-repeat;color:var
       <h2>Semua produk KLC.</h2>
       <p>Klik “Pesan lewat Shopee” untuk checkout langsung. Kemasan 1 kg, renceng, dan kemasan besar ada di tab masing-masing.</p>
     </div>
-    <a class="btn btn--white" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Belanja di Shopee</a>
   </div>
-  <div class="filters" role="group" aria-label="Saring produk">
+  <div class="filters">
     <button class="chip" data-filter="all" aria-pressed="true">Unggulan</button>
     <button class="chip" data-filter="sari-rasa" aria-pressed="false">Pilus Cikur Sari Rasa</button>
     <button class="chip" data-filter="kacang" aria-pressed="false">Kacang &amp; Pilus</button>
     <button class="chip" data-filter="cripzy" aria-pressed="false">Cripzy</button>
     <button class="chip" data-filter="kiloan" aria-pressed="false">Kemasan 1 kg</button>
     <button class="chip" data-filter="renceng" aria-pressed="false">Renceng 12 g</button>
+    <a class="chip chip--shop" href="https://shopee.co.id/klcfood.co" target="_blank" rel="noopener">Belanja di Shopee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
   <div class="grid" id="grid">
       <article class="card rv" data-front="1" style="--blob:#7FA6C4" data-cat="sari-rasa">
